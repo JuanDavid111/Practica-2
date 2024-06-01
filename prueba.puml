@@ -25,7 +25,7 @@ object "C1:variable" as c1
 c1 : valor = 2
 
 object "C2:variable" as c2
-c2 : valor = 3
+c2 : valor = 4
 
 	o1 o-- o2
     o1 o-- o3
@@ -37,8 +37,6 @@ c2 : valor = 3
     o3 o-- o5
     o3 o-- v2
     o5 o-- v1
-
- 
 
 
 

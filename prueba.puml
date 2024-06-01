@@ -1,0 +1,28 @@
+@startuml Ejercicio g
+
+object "E1:Expreción" as o1
+o1 : operadorBinario ="/"
+
+object "E2:Expreción" as o2
+o2 : operadorBinario ="+"
+
+object "E3:Expreción" as o3
+o3 : operadorBinario ="+"
+
+object "E4:Expreción" as o4
+o4 : operadorBinario ="/"
+
+object "E5:Expreción" as o5
+o5 : operadorBinario ="/"
+
+object "V1:variable" as v1
+v1 : operadorBinario ="+"
+
+object "V2:variable" as v2
+v2 : operadorBinario ="+"
+
+
+
+
+
+@enduml

@@ -1,0 +1,281 @@
+@startuml b.1
+Teclado *-- "105..*"Letras: Tiene
+@enduml
+
+@startuml b.2
+Persona <|-- Estudiante
+Persona <|-- Profesor
+Persona <|-- Empleado
+@enduml
+
+@startuml b.3
+DiscoDuro *-- "1..*"Pista: Formado
+Pista *-- "1..*"Sector: Formado
+@enduml
+
+@startuml b.4
+Poligono <|-- Triangulo
+Triangulo *-- "3..3" Lados: Formado
+@enduml
+
+@startuml b.5
+Estadio -- Equipo: Homeclub Asignado
+Equipo *-- "1..*"Jugador: Formado
+@enduml
+
+@startuml b.6
+Comite"0..*" *-- "2..*"Persona: Formado
+Persona"1..1" -- "0..*"Comite: Coordinado
+@enduml
+
+@startuml b.7
+Caracterizacion -- "1..*"Criterio: Se fundamenta
+Caracterizacion -- ElementoClasificado: Genera
+ElementoClasificado ..> Criterio
+@enduml
+
+@startuml b.8
+Laboratorio <|-- Laboratorio_Nuclear
+Laboratorio_Nuclear o-- "1..*"Equipo_Nuclear
+Laboratorio o-- "1..*"Equipo
+Equipo <|-- Equipo_Nuclear
+@enduml
+
+@startuml b.9
+Ecuacion_FP *-- UFC: 1er operando
+Ecuacion_FP *-- TCF: 2do operando
+TCF ..> "14..14"Subfactores_FI
+@enduml
+
+@startuml b.10
+Trabajo_De_Investigacion <|-- TEG
+Trabajo_De_Investigacion <|-- TGM
+Trabajo_De_Investigacion"0..*" -- "1..2"Profesor: Dirige
+TEG -- "1..2"Estudiante_De_Pregrado: Realiza
+TGM -- "1..1"Estudiante_De_Postgrado: Realiza
+@enduml
+
+@startuml b.11
+Documento_Grafico *-- "1..*"Hoja
+Hoja o-- "1..1"Objeto_Dibujo
+Objeto_Dibujo <|-- Texto
+Objeto_Dibujo <|-- Figura_2D
+Objeto_Dibujo <|-- Grupo
+Figura_2D <|-- Circulo
+Figura_2D <|-- Cuadrado
+Grupo"0..1" o-- "0..*"Objeto_Dibujo
+@enduml
+
+@startuml c.1
+Poligono -- "3..*"Punto: Tiene
+class Punto{
+cord_x: int
+cord_y: int
+}
+@enduml
+
+@startuml c.2
+object "T1: Poligono" as o1
+object "T2: Poligono" as o2
+object ": Punto" as o3
+object ": Punto" as o4
+object ": Punto" as o5
+object ": Punto" as o6
+object o3{
+coord_x = 0
+coord_y = 0
+}
+object o4{
+coord_x = 0
+coord_y = 15
+}
+object o5{
+coord_x = 15
+coord_y = 15
+}
+object o6{
+coord_x = 7
+coord_y = 15
+}
+o1 -- o3
+o1 -- o4
+o1 -- o5
+o2 -- o4
+o2 -- o5
+o2 -- o6
+@enduml
+
+@startuml c.3
+object "T1: Poligono" as o1
+object ": Punto" as o3
+object ": Punto" as o4
+object ": Punto" as o5
+object ": Punto" as o6
+object o3{
+coord_x = 0
+coord_y = 0
+}
+object o4{
+coord_x = 1
+coord_y = 0
+}
+object o5{
+coord_x = 0
+coord_y = 1
+}
+object o6{
+coord_x = 1
+coord_y = 1
+}
+o1 -- o3
+o1 -- o4
+o1 -- o5
+o1 -- o6
+@enduml
+
+'e.1: Que en el paquete “top” se requiere de las funcionalidades o componentes del paquete “controllers”
+'para un correcto funcionamiento.
+
+'e.2: Hay 6 dependencias, siendo 3 de entrada y 3 de salida, y en caso de que sucediese un cambio en 
+'alguna de las clases del paquete “Threads” podría cambiarse el funcionamiento del código.
+
+'e.3: Dado que todos los paquetes están relacionados entre sí, se puede decir que hay un alto acoplamiento,
+'lo cual puede ser malo ya que será más difícil mantener un código de este tipo.
+
+@startuml d.1
+
+object "E1:Expreción" as o1
+o1 : operadorBinario = /
+
+object "E2:Expreción" as o2
+o2 : operadorBinario = +
+
+object "E3:Expreción" as o3
+o3 : operadorBinario = +
+
+object "E4:Expreción" as o4
+o4 : operadorBinario = /
+
+object "E5:Expreción" as o5
+o5 : operadorBinario = /
+
+object "V1:variable" as v1
+v1 : nombre = x
+
+object "V2:variable" as v2
+v2 : nombre = y
+
+object "C1:variable" as c1
+c1 : valor = 2
+
+object "C2:variable" as c2
+c2 : valor = 3
+	o1 o-- o2
+    o1 o-- o3
+    o2 o-- o4
+    o2 o-- v1
+    o4 o-- v2
+    o4 o-- c1
+    o5 o-- c2
+    o3 o-- o5
+    o3 o-- v2
+    o5 o-- v1
+@enduml
+
+
+
+@startuml f.1
+class Equipo
+{
+    Nombre: String
+    Registro: String
+}
+class Jugador
+{
+    Número: Int
+    Posición: String
+    Capitán: Boolean
+    Teléfono: String
+    Nombre: String
+    Dirección: String 
+}
+class Entrenador
+{
+    NivelAcreditación: String
+    AñosExperiencia: Int
+    Teléfono: String
+    Nombre: String
+    Dirección: String  
+}
+class Juego
+{
+    Localidad: String
+    Puntuación: String
+}
+
+Equipo "1 " o-- "6..20"Jugador :tiene
+Equipo "0..*" o-- "0..1 "Entrenador :entrena
+Juego *-- "2" Equipo
+
+object "E1:Entredaor1" as e1
+e1 : NivelAcreditación= Internacional
+e1 : AñosExperiencia = 10 
+e1 : Teléfono= 0414-1234567
+e1 : Nombre= Luis
+e1 : Dirección= Maracay
+
+object "Eq1:Equipo1" as eq1
+eq1 : Nombre = Venezuela
+eq1 : Registro = VEN123
+
+
+object "Eq2:Equipo2" as eq2
+eq2 : Nombre = Colombia
+eq2 : Registro = COL456
+
+
+object "J1:Jugador1" as j1
+j1 : Número = 9
+j1 : Nombre = Andrés
+j1 : Posición = Libero
+j1 : Capitán = true
+j1 : Télefono = 0412-1234567
+j1 : Dirección = Dirección
+
+object "J2:Jugador2" as j2
+j2 : Número = 3
+j2 : Nombre = Luis
+j2 : Posición = Atacante
+j2 : Capitán = true
+j2 : Télefono = 0412-1238562
+j2 : Dirección = Dirección
+
+object "J1:Jugador1" as j3
+j3 : Número = 4
+j3 : Nombre = Andrés
+j3 : Posición = Atacante
+j3 : Capitán = true
+j3 : Télefono = 0312-7654321
+j3 : Dirección = Bogotá
+object "J2:Jugador2" as j4
+j4 : Número = 5
+j4 : Nombre = Juan
+j4 : Posición = Libero
+j4 : Capitán = true
+j4 : Télefono = 0312-7654123
+j4 : Dirección = Bogotá
+
+
+object "Je:Juego" as je
+je : Localidad = Santiago de Chile
+je : Puntuación = Venezuela 3 - Colombia 2
+
+eq1 o-- j1
+eq1 o-- j2
+eq1 o-- e1
+eq2 o-- j3
+eq2 o-- j4
+je *-- eq1
+je *-- eq2
+
+@enduml

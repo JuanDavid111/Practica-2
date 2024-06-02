@@ -133,13 +133,13 @@ o1 -- o5
 o1 -- o6
 @enduml
 
-'e.1: Que en el paquete “top” se requiere de las funcionalidades o componentes del paquete “controllers”
+'e.1:Que en el paquete “top” se requiere de las funcionalidades o componentes del paquete “controllers”
 'para un correcto funcionamiento.
 
-'e.2: Hay 6 dependencias, siendo 3 de entrada y 3 de salida, y en caso de que sucediese un cambio en 
+'e.2:Hay 6 dependencias, siendo 3 de entrada y 3 de salida, y en caso de que sucediese un cambio en 
 'alguna de las clases del paquete “Threads” podría cambiarse el funcionamiento del código.
 
-'e.3: Dado que todos los paquetes están relacionados entre sí, se puede decir que hay un alto acoplamiento,
+'e.3:Dado que todos los paquetes están relacionados entre sí, se puede decir que hay un alto acoplamiento,
 'lo cual puede ser malo ya que será más difícil mantener un código de este tipo.
 
 @startuml d.1
